@@ -5,3 +5,5 @@ if (process.env.NODE_ENV === 'production') {
 } else {
   module.exports = require('./cjs/react.development.js');
 }
+
+module.exports.createReactElement = module.exports.createElement;

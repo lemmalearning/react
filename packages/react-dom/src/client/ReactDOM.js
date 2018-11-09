@@ -790,14 +790,14 @@ if (enableStableConcurrentModeAPIs) {
   ReactDOM.unstable_createRoot = createRoot;
 }
 
-const foundDevTools = DOMRenderer.injectIntoDevTools({
-  findFiberByHostInstance: ReactDOMComponentTree.getClosestInstanceFromNode,
-  bundleType: __DEV__ ? 1 : 0,
-  version: ReactVersion,
-  rendererPackageName: 'react-dom',
-});
-
 if (__DEV__) {
+  const foundDevTools = DOMRenderer.injectIntoDevTools({
+    findFiberByHostInstance: ReactDOMComponentTree.getClosestInstanceFromNode,
+    bundleType: __DEV__ ? 1 : 0,
+    version: ReactVersion,
+    rendererPackageName: 'react-dom',
+  });
+
   if (!foundDevTools && canUseDOM && window.top === window.self) {
     // If we're in Chrome or Firefox, provide a download link if not installed.
     if (
